@@ -1,0 +1,20 @@
+{
+	"name": "sgrs/framework",
+	"Description": "Micro framework MVC",
+	"licence": "MIT",
+	"type": "project",
+	"author": {
+			"name": "Bianca de Oliveira",
+			"email": "contato@biancadeoliveira.com.br"
+		},
+	"autoload":{
+		"psr-4":{
+			"App\\": "app/",
+			"Core\\": "core/"
+		}
+	},
+	"require": {
+		"php": ">=5.4",
+		"slim/slim": "^3.0"
+	}
+}
