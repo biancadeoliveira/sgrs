@@ -64,20 +64,23 @@ class Sql
 	}
 
 	//Executa um query, retorna os dados encontrados
-	public function executarSelect($query, $var){
+	public function executarSelect($query, $var = array()){
 
 		$stmt = $this->conn->prepare(
 		    $query
 		);
 
-		$stmt = $this->bindParams($stmt, $var);
+		if(!empty($var) && !is_null($var)){
+			$stmt = $this->bindParams($stmt, $var);
+		}
 
 		
 		$stmt->execute();
 
+
 		$resultado = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
-		return json_encode($resultado);
+		return $resultado;
 
 	}
 

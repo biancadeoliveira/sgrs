@@ -383,6 +383,9 @@ class App
             $request = $this->dispatchRouterAndPrepareRoute($request, $router);
         }
 
+        $response = $this->callMiddlewareStack($request, $response);
+        die();
+
         // Traverse middleware stack
         try {
             $response = $this->callMiddlewareStack($request, $response);

@@ -14,41 +14,16 @@ use App\system\Models;
 class CidadesController
 {
 
-	public function GetInserir(){
+	public function GetInserir($request, $response, $args){
+		
+		$cidade = new \App\system\Models\Cidades();
+		$cidades = $cidade->select();			
 
-
-		echo('
-			<form method="POST" action="http://localhost/framework/public/teste">
-				<label>Nome da cidade</label>
-				<input type="text" name="nome">
-				
-				<br>
-
-				<label>Código Postal</label>
-				<input type="text" name="codPostal">
-				
-				<br>
-
-				<label>Estado</label>
-				<input type="text" name="estado">
-				
-				<br>
-
-				<label>Pais</label>
-				<input type="text" name="pais">
-				
-				<br>
-
-				<input type="submit" value="Enviar">
-
-			</form>
-		');
-
+		PainelController::GetExibir('formCidade', $cidades);
 
 	}
 
-
-	public function PostInserir(){
+	public function PostInserir($request, $response, $args){
 
 		$nome = $_POST['nome'];
 		$codPostal = $_POST['codPostal'];
@@ -62,7 +37,11 @@ class CidadesController
 
 		$cidade = new \App\system\Models\Cidades($dados);
 
-		$cidade->inserir();
+		$result = $cidade->inserir();
+
+
+		$response->redirect('/usuario');
+		//header("Location: ".$config['urlPadrao']."cidade");
 
 
 	}
