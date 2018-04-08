@@ -23,13 +23,12 @@ public function GetInserirUsuario(){
 		$cidadesDAO = new \App\system\Models\CidadesDAO();
 
 		$ceps = $cidadesDAO->listarCep();
-		$ceps = json_decode( $ceps );
+		$ceps = json_encode( $ceps );
 
-		$cidades = $cidadesDAO->listarCidade();
-		$cidades = json_decode( $cidades );
-
+		$cidades = $cidadesDAO->select();
+		//$cidades = json_encode( $cidades );
 		echo('
-			<form method="POST" action="http://localhost/git/sgrs/public/usuario">
+			<form method="POST" action="http://localhost/framework/public/usuario">
 				<label>CPF</label>
 				<input type="text" name="cpf">
 				
@@ -72,13 +71,8 @@ public function GetInserirUsuario(){
 
 				<br><label>Estado</label>
 				<select name="estado">
-		');
-
-		foreach( $cidades as $cidade ) {
-			echo '<option value="' . $cidade->codCidade . '">' . $cidade->estado . '</option>';
-		}
-
-		echo ('			
+					<option value="1">Ativo</option>
+					<option value="0">Inativo</option>
 				</select>	
 				<br>
 
