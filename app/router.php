@@ -27,8 +27,8 @@ $app = new \Slim\App(['settings' => $config]);
 */
 
 //Site
-// $app->get('/', App\site\Controllers\SiteController::class. ':home');						//Home site
-// $app->get('/sobre', App\site\Controllers\SiteController::class. ':sobre');					//Página sobre
+$app->get('/', App\site\Controllers\SiteController::class. ':home');						//Home site
+$app->get('/sobre', App\site\Controllers\SiteController::class. ':sobre');					//Página sobre
 // $app->get('/contato', App\site\Controllers\SiteController::class. ':contato');				//Página contato
 // $app->get('/cardapio', App\site\Controllers\SiteController::class. ':cardapio');			//Página cardapio
 // $app->get('/cardapio/{item}', App\site\Controllers\SiteController::class. ':cardapioItem');	//Página item do cardapio
@@ -42,11 +42,12 @@ $app->get('/painel', App\system\Controllers\PainelController::class. ':GetExibir
 ** Bianca - 2018-04-07
 */
 
-$app->get('/painel/cidade', App\system\Controllers\CidadesController::class. ':GetInserir');	//Página teste banco
+$app->get('/painel/cidade', App\system\Controllers\CidadesController::class. ':GetInserir')->setName('cidade');;	//Página teste banco
 $app->post('/painel/cidade', App\system\Controllers\CidadesController::class. ':PostInserir');	//Página teste banco
-$app->get('/painel/cidade/:idcidade', App\system\Controllers\CidadesController::class. ':GetExibir');	//Página teste banco
-$app->post('/painel/cidade/:idcidade', App\system\Controllers\CidadesController::class. ':PostUpdate');	//Página teste banco
-$app->get('/painel/cidade/:idcidade/delete', App\system\Controllers\CidadesController::class. ':GetDelete'); //Página teste banco
+$app->get('/painel/cidade/delete/{idcidade}', App\system\Controllers\CidadesController::class. ':DeleteCidade'); //Página teste banco
+
+// $app->get('/painel/cidade/:idcidade', App\system\Controllers\CidadesController::class. ':GetExibir');	//Página teste banco
+// $app->post('/painel/cidade/:idcidade', App\system\Controllers\CidadesController::class. ':PostUpdate');	//Página teste banco
 
 
 $app->get('/usuario', App\system\Controllers\UsuarioController::class. ':GetInserirUsuario');	//Página teste banco

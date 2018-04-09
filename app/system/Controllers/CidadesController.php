@@ -14,13 +14,16 @@ use App\system\Models;
 class CidadesController
 {
 
+	private $teste = "Bianca";
+
 	public function GetInserir($request, $response, $args){
 		
+		$this->teste;
+
 		$cidade = new \App\system\Models\Cidades();
-		$cidades = $cidade->select();			
+		$cidades = $cidade->select();
 
 		PainelController::GetExibir('formCidade', $cidades);
-
 	}
 
 	public function PostInserir($request, $response, $args){
@@ -39,10 +42,22 @@ class CidadesController
 
 		$result = $cidade->inserir();
 
+		// \Core\Request::newR('GET', 'http://localhost/framework/public/painel/cidade');
 
-		$response->redirect('/usuario');
-		//header("Location: ".$config['urlPadrao']."cidade");
+		header("Location: http://localhost/framework/public/painel/cidade");
 
+	}
+
+	public function DeleteCidade($request, $response, $args){
+
+		$cidade = new \App\system\Models\Cidades();
+
+
+		$result = $cidade->excluir($args['idcidade']);
+
+		header("Location: http://localhost/framework/public/painel/cidade");
+
+		
 
 	}
 	

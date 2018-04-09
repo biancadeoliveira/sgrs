@@ -16,6 +16,8 @@ use App;
 class CidadesDAO
 {	
 
+
+	//Método para inserir uma nova cidade
 	public function insert($data){
 
 
@@ -30,6 +32,8 @@ class CidadesDAO
 
 		$this->executar($a, 'executarQuery', $var);
 	}
+
+
 
 	public function search($data){
 
@@ -52,11 +56,27 @@ class CidadesDAO
 	}
 
 
+
+	//Método para listar todas as cidades do banco
 	public function select(){
 
-		$a = 'SELECT nome, codPostal, estado, pais FROM cidade ORDER BY nome';
+		$a = 'SELECT * FROM cidade ORDER BY nome';
 
 		$result = $this->executar($a, 'executarSelect');
+		return $result;
+	}
+
+
+	//Método para excluir uma cidade
+	public function excluir($id){
+
+		$a = 'DELETE FROM cidade where codCidade = :ID';
+
+		$var = array(
+			':ID' => $id
+		);
+
+		$result = $this->executar($a, 'executarQuery', $var);
 		return $result;
 	}
 

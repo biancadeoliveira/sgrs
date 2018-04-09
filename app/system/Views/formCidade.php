@@ -83,7 +83,7 @@
 					<td><?php echo $value['estado'];?></td>
 					<td><?php echo $value['pais'];?></td>
 					<td class="tdBtn editar"><a href="#">Editar</a></td>
-					<td class="tdBtn excluir"><a href="#">Excluir</a></td>
+					<td class="tdBtn excluir"><a href="http://localhost/framework/public/painel/cidade/delete/<?php echo $value['codCidade'];?>">Excluir</a></td>
 				</tr>
 
 		<?php

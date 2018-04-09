@@ -106,11 +106,17 @@ class Cidades
 		$r = Validacao::verificarNullGeral($cn, $dados);
 
 		if ($r == true) {
-		 	$return = "Erro! Existem valores em branco";
+		 	return ("Erro! Existem valores em branco");
+		 	// echo("Erro! Existem valores em branco");
 		} else {
 		 	$dao = new \App\system\Models\CidadesDAO();
-		 	$return = $dao->insert($dados);
+		 	return $dao->insert($dados);
 		}
+	}
+
+	public function excluir($id){
+		 	$dao = new \App\system\Models\CidadesDAO();
+		 	return $dao->excluir($id);
 	}
 
 	public function select(){
