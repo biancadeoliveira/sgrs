@@ -16,9 +16,9 @@ use App;
 class CidadesDAO
 {	
 
-	public function insert($data){
 
-		var_dump($data);
+	//Método para inserir uma nova cidade
+	public function insert($data){
 
 
 		$a = 'INSERT INTO cidade (nome, codPostal, estado, pais) VALUES (:NOME, :CODPOSTAL, :ESTADO, :PAIS)';
@@ -30,10 +30,12 @@ class CidadesDAO
 			':PAIS' => $data[3]
 		);
 
-		$this->executar($a, $var, 'executarQuery');
+		$this->executar($a, 'executarQuery', $var);
 	}
 
-	public function select($data){
+
+
+	public function search($data){
 
 		$a = 'SELECT codCidade, nome FROM cidade WHERE estado = :ESTADO';
 		
@@ -41,15 +43,55 @@ class CidadesDAO
 			':ESTADO' => $data[0]
 		);
 
-		$this->executar($a, $var, 'executarSelect');
+		$this->executar($a, 'executarSelect', $var);
+	}
+
+
+	public function listarCep(){
+
+		$a = 'SELECT * FROM cep';
+
+		$result = $this->executar($a, 'executarSelect');
+		return $result;
+	}
+
+
+
+	//Método para listar todas as cidades do banco
+	public function select(){
+
+		$a = 'SELECT * FROM cidade ORDER BY nome';
+
+		$result = $this->executar($a, 'executarSelect');
+		return $result;
+	}
+
+
+	//Método para excluir uma cidade
+	public function excluir($id){
+
+		$a = 'DELETE FROM cidade where codCidade = :ID';
+
+		$var = array(
+			':ID' => $id
+		);
+
+		$result = $this->executar($a, 'executarQuery', $var);
+		return $result;
 	}
 
 	
-	private function executar($a, $var, $func){
+	private function executar($a, $func, $var = array()){
 
 		$db = new App\Sql();
 
-		$db->$func($a, $var);
+		if(!empty($var) && !is_null($var)){
+			$result = $db->$func($a, $var);
+		} else{
+			$result = $db->$func($a);
+		}
+
+		return $result;
 
 	}
 

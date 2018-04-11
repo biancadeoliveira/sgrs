@@ -15,7 +15,7 @@ class Login
 	function teste(){
 		return "<br>Entrou na classe login view
 
-		<form action='http://localhost/framework/public/app/login' method='POST'>
+		<form action='http://localhost/git/sgrs/public/app/login' method='POST'>
 
 			<input type='text' name='nome'>
 			<input type='text' name='email'>

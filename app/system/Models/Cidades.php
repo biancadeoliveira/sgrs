@@ -19,11 +19,18 @@ class Cidades
 	private $estado;
 	private $pais;
 
+	public $camposNull = array(
+		'1', '1', '1', '1'
+	);
+
 
 	//Método construtor
-	public function __construct($dados){
+	public function __construct($dados = array()){
 
-		$this->setDados($dados);
+
+		if(!empty($dados) && !is_null($dados)){
+			$this->setDados($dados);
+		}
 
 	}
 
@@ -64,6 +71,10 @@ class Cidades
 		$this->pais = $dado;
 	}
 
+	public function getDadosNull(){
+		return $this->camposNull;
+	}
+
 	public function setDados($dados){
 
 		$this->setNome($dados[0]);
@@ -90,34 +101,32 @@ class Cidades
 	public function inserir(){
 
 		$dados = $this->getDados();
-		$r = $this->verificarNull();
+		$cn = $this->getDadosNull();
+		
+		$r = Validacao::verificarNullGeral($cn, $dados);
 
 		if ($r == true) {
-		 	echo "Erro! Existem valores em branco";
+		 	return ("Erro! Existem valores em branco");
+		 	// echo("Erro! Existem valores em branco");
 		} else {
 		 	$dao = new \App\system\Models\CidadesDAO();
-		 	$dao->insert($dados);
+		 	return $dao->insert($dados);
 		}
+	}
+
+	public function excluir($id){
+		 	$dao = new \App\system\Models\CidadesDAO();
+		 	return $dao->excluir($id);
+	}
+
+	public function select(){
+
+		 	$dao = new \App\system\Models\CidadesDAO();
+		 	return $dao->select();
 
 	}
 
-	private function verificarNull(){
-
-		$dados = $this->getDados();
-
-		foreach ($dados as $key => $value) {
-
-			if(is_null($value) || empty($value) || $value == ""){
-				//Tem nulo
-				return true;
-			}
-
- 		}
-
- 		//"nao tem nulo";
-		return false;
-
-	}
+	
 
 	private function validarCodPostal(){
 

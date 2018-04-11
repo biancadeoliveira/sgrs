@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+*{
+	font-family: Roboto;
+}
+
+/*td, th, tr{
+	margin: 0;
+	padding: 0;
+	border-collapse: collapse;
+	border-spacing: 0;
+	border: 0;
+}*/
+
+tr{
+	
+}
+
+fieldset{
+	padding: 25px;
+    border: 1px solid #ecebeb;
+}
+
+legend{
+	background-color: #748b9c;
+    color: #fff;
+    padding: 15px;
+}
+
+table{
+	border-collapse: collapse;
+}
+
+#logo{
+	position: absolute;
+	bottom: 0;
+	color: #ffffff22;
+	padding: 15px 0;
+	font-size: 1.5em;
+	text-align: center;
+	width: 100%;
+	letter-spacing: 10px;
+}
+
+.dados{
+	float: left;
+	width: 70%;
+	box-sizing: border-box;
+}
+
+.dados th{
+	padding: 10px;
+	border: 1px solid #f3f3f3;
+	font-weight: lighter;
+	background-color: #252525;
+	color: #fff;
+	margin: 0;
+}
+
+.dados .l1{
+	background-color: #ebebeb;
+}
+
+.dados td{
+	max-width: 100%;
+	padding: 0px 30px;
+	margin: 0px;
+	text-align: left;
+	border: 1px solid #f3f3f3;
+}
+
+.dados td a{
+	font-size: 12px;
+	color: #fff;
+	text-decoration: none;
+}
+
+.tdBtn{
+	padding: 5px!important;
+}
+
+.excluir{
+	background-color: #ff3535;
+}
+
+.editar{
+	background-color: #3e9d36;
+}
+
+.nav{
+	position: fixed;
+	width: 20%;
+	top: 6vh;
+	bottom: 0;
+	background-color: #252525;
+}
+
+.nav ul{
+	padding: 0;
+	margin: 0;
+	display: table;
+    width: 100%;
+}
+
+.nav ul li{
+	display: table;
+    box-sizing: border-box;
+    padding: 20px;
+    text-align: left;
+    list-style: none;
+    text-decoration: none;
+    background-color: #ffffff26;
+    color: #fff;
+    border-bottom: 2px solid #252525;
+    width: 100%;
+}
+
+.nav ul li:hover{
+	background-color: #748b9c;
+	border-bottom: 2px solid #435460;
+	text-align: center;
+	/*transition: all .5s;*/
+}
+
+.content{
+	margin-top: 10vh;
+	display: table;
+	float: right;
+	width: 80%;
+}
+
+.buttons{
+	position: fixed;
+    right: 0;
+    width: 24%;
+    margin: 0px;
+    box-sizing: border-box;
+    text-align: center;
+    bottom: 10px;
+    border-right: 10px solid #000;
+}
+
+.buttons h3{
+	margin: 10px 90px;
+    padding: 10px;
+    background: #f6f6f6;
+    font-size: .9em;
+    font-weight: lighter;
+    border: groove;
+}

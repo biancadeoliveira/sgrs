@@ -1,11 +1,11 @@
 {
-	"name": "sgrs/framework",
+	"name": "sgrs",
 	"Description": "Micro framework MVC",
 	"licence": "MIT",
 	"type": "project",
 	"author": {
-			"name": "Bianca de Oliveira",
-			"email": "contato@biancadeoliveira.com.br"
+			"name": "Lucas Gabriel",
+			"email": "lucas.souza96@fatec.sp.gov.br"
 		},
 	"autoload":{
 		"psr-4":{

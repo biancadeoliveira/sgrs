@@ -36,7 +36,7 @@ class Sql
 		try {
 		
 			//Instância o objeto de conexão do banco de dados
-			$conn = new \PDO("mysql:host=localhost;dbname=sgrs_engenharia", "root", ""); 
+			$conn = new \PDO("mysql:host=localhost;dbname=sgrs_engenharia", "root", "978471"); 
 			//Armazena a conexão na variavel $conn 
 			$this->conn = $conn;
 
@@ -64,20 +64,23 @@ class Sql
 	}
 
 	//Executa um query, retorna os dados encontrados
-	public function executarSelect($query, $var){
+	public function executarSelect($query, $var = array()){
 
 		$stmt = $this->conn->prepare(
 		    $query
 		);
 
-		$stmt = $this->bindParams($stmt, $var);
+		if(!empty($var) && !is_null($var)){
+			$stmt = $this->bindParams($stmt, $var);
+		}
 
 		
 		$stmt->execute();
 
+
 		$resultado = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
-		return json_encode($resultado);
+		return $resultado;
 
 	}
 
