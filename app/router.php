@@ -18,7 +18,11 @@ require '..'.DIRECTORY_SEPARATOR.'vendor'.DIRECTORY_SEPARATOR.'autoload.php';
 
 
 //Inicia o slim
+<<<<<<< HEAD
 $config['urlPadrao'] = 'http://localhost/git/sgrs/public/';
+=======
+$config['urlPadrao'] = 'http://localhost/framework/public/';
+>>>>>>> e4017f17f08fbe893842330e227fdee34a2d6660
 
 $app = new \Slim\App(['settings' => $config]);
 

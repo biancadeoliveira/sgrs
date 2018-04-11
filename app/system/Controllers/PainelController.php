@@ -27,7 +27,11 @@ class PainelController
 
 		);
 
+<<<<<<< HEAD
 		$c = 'C:/xampp/htdocs/git/sgrs/app/system/Views/';
+=======
+		$c = 'C:/xampp/htdocs/framework/app/system/Views/';
+>>>>>>> e4017f17f08fbe893842330e227fdee34a2d6660
 		include_once($c . 'menuSuperior.php');
 
 

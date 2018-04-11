@@ -28,7 +28,7 @@ public function GetInserirUsuario(){
 		$cidades = $cidadesDAO->select();
 		//$cidades = json_encode( $cidades );
 		echo('
-			<form method="POST" action="http://localhost/git/sgrs/public/usuario">
+			<form method="POST" action="http://localhost/framework/public/usuario">
 				<label>CPF</label>
 				<input type="text" name="cpf">
 				

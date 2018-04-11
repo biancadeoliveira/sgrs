@@ -44,7 +44,11 @@ class CidadesController
 
 		// \Core\Request::newR('GET', 'http://localhost/framework/public/painel/cidade');
 
+<<<<<<< HEAD
 		header("Location: http://localhost/git/sgrs/public/painel/cidade");
+=======
+		header("Location: http://localhost/framework/public/painel/cidade");
+>>>>>>> e4017f17f08fbe893842330e227fdee34a2d6660
 
 	}
 
@@ -55,7 +59,11 @@ class CidadesController
 
 		$result = $cidade->excluir($args['idcidade']);
 
+<<<<<<< HEAD
 		header("Location: http://localhost/git/sgrs/public/painel/cidade");
+=======
+		header("Location: http://localhost/framework/public/painel/cidade");
+>>>>>>> e4017f17f08fbe893842330e227fdee34a2d6660
 
 		
 

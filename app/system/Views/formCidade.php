@@ -4,7 +4,11 @@
 	   <legend>Cadastrar cidade</legend>
 	   
 	
+<<<<<<< HEAD
 		<form method="POST" action="http://localhost/git/sgrs/public/painel/cidade">
+=======
+		<form method="POST" action="http://localhost/framework/public/painel/cidade">
+>>>>>>> e4017f17f08fbe893842330e227fdee34a2d6660
 			
 			<table>
 				<tr>
@@ -83,7 +87,11 @@
 					<td><?php echo $value['estado'];?></td>
 					<td><?php echo $value['pais'];?></td>
 					<td class="tdBtn editar"><a href="#">Editar</a></td>
+<<<<<<< HEAD
 					<td class="tdBtn excluir"><a href="http://localhost/git/sgrs/public/painel/cidade/delete/<?php echo $value['codCidade'];?>">Excluir</a></td>
+=======
+					<td class="tdBtn excluir"><a href="http://localhost/framework/public/painel/cidade/delete/<?php echo $value['codCidade'];?>">Excluir</a></td>
+>>>>>>> e4017f17f08fbe893842330e227fdee34a2d6660
 				</tr>
 
 		<?php
